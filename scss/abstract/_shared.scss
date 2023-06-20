@@ -1,0 +1,64 @@
+@use 'config' as *;
+body {
+  font-size: 14px;
+  h1 {
+    font-size: $heading;
+    font-size: 32px;
+    line-height: 1.1;
+    font-weight: $semi-bold;
+  }
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+%hero-bg {
+  $clr1: map-get($clr-gradient-hero, 300 );
+  $clr2: map-get($clr-gradient-hero, 400 );
+
+  @include bg-gradient($clr1,$clr2);
+  position: relative;
+  max-height: 37rem;
+  overflow: hidden;
+  border-radius: 0 0 0 100px;
+
+  picture img {
+    scale: 4.2;
+    margin: 14rem 0 0 7.5rem;
+  }
+
+  .container {
+    position: absolute;
+    inset: 3.5rem 0 auto 0;
+  }
+
+  nav {
+    img {
+      width: 76px;
+    }
+  }
+}
+
+%btn {
+  height: 3rem;
+  border-radius: 26px;
+  font-weight: $bold;
+  font-family: $ff-title;
+  font-size: 15px;
+}
+
+.primary-btn {
+  @include get-bg($clr-neutral,100);
+  @include get-color($clr-primary,400);
+  @include hover(background-color,$clr-neutral,200);
+}
+.secondary-btn {
+  border: .10rem solid map-get($clr-neutral, 200 );
+
+  @include hover(background-color,$clr-neutral,100);
+  @include hover(color,$clr-primary,400);
+}

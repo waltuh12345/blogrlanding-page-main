@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>blogr-landing-page-main</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css" integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="dist/main.css">
+</head>
+<body>
+
+  <main>
+    
+    <section id="hero">
+      <picture>
+        <source media="(max-width:48rem)" srcset="assets/images/bg-pattern-intro-mobile.svg">
+        <source media="(min-width:48rem)" srcset="assets/images/bg-pattern-intro-desktop.svg">
+        <img src="assets/images/bg-pattern-intro-mobile.svg" alt="hero">
+      </picture>
+
+      <div class="container">
+
+        <nav role="navigation">
+          <a href="#"><img src="assets/images/logo.svg" alt="web_logo"></a>
+          <button id="menu-toggle"></button>
+
+          <div class="links-wrapper">
+            <div class="list-container">
+              
+              <div class="list1">
+                <section class="box1">
+                  <button>Product</button>
+                  <ul>
+                    <li><a href="#">Overview</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Marketplace</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Integrations</a></li>
+                  </ul>
+                </section>
+                <section class="box1">
+                  <button>Company</button>
+                  <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                  </ul>
+                </section>
+                <section class="box1">
+                  <button>Contact</button>
+                  <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                  </ul>
+                </section>
+              </div>
+              <ul class="list2 btn-wrapper">
+                <li><a href="#">Log in</a></li>
+                <li><button class="primary-btn">Sign Up</button></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <header>
+          <h1>A modern publishing platform</h1>
+          <div>Grow your audience and build your online brand</div>
+          <div class="btn-wrapper">
+            <button class="primary-btn">Start for free</button>
+            <button class="secondary-btn">Learn More</button>
+          </div>
+        </header>
+      </div>
+    </section>
+
+    <section id="sec1">
+      <div class="big-container right">
+        <h2>Designed for the future</h2>
+        <article>
+          <div class="box2 wow">
+            <picture>
+              <source media="(max-width:40rem)" srcset="assets/images/illustration-editor-mobile.svg">
+              <source media="(min-width:40rem)" srcset="assets/images/illustration-editor-desktop.svg">
+              <img src="assets/images/illustration-editor-mobile.svg" alt="sec1_img">
+            </picture>
+          </div>
+          <ul class="box1 wow">
+            <li>
+              <h3></h3>
+              <p></p>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <picture>
+        <img src="assets/images/bg-pattern-circles.svg" alt="bg-pattern-circles.svg">
+      </picture>
+      
+      <div class="absoulte sec2-container">
+        <picture>
+          <img class="wow" src="assets/images/illustration-phones.svg" alt="illustration-phones">
+        </picture>
+        <article class="wow">
+          <h2>State of the Art Infrastructure</h2>
+          <p>With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity. This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="sec3-container">
+        <picture>
+          <source media="(max-width: 48rem)" srcset="assets/images/illustration-laptop-mobile.svg">
+          <source media="(min-width: 48rem)" srcset="assets/images/illustration-laptop-desktop.svg">
+          <img src="assets/images/illustration-laptop-mobile.svg" alt="illustration-laptop" class="wow">
+        </picture>
+        <ul class="wow">
+          <li>
+            <h3></h3>
+            <p></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <span><a href="#"><img src="assets/images/logo.svg" alt="logo"></a></span>
+      <div class="box-wrapper">
+        <div class="box">
+          <h4>Product</h4>  
+          <ul>
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Integrations</a></li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="js/wow.min.js"></script>
+  <script>new WOW().init();</script>
+  <script src="js/index.mjs" type="module"></script>
+  <script src="js/sec1.js"></script>
+  <script src="js/sec3.js"></script>
+</body>
+</html>

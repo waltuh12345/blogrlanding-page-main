@@ -1,0 +1,159 @@
+//====COLORS=====//
+$clr-primary: (
+  300: hsl(355, 100%, 74%),
+  400: hsl(356, 100%, 66%),
+  500: hsl(208, 49%, 24%)
+);
+
+$clr-neutral: (
+  100: hsl(0, 0%, 100%),
+  210: hsla(240, 3%, 79%, 0.427),
+  200: hsl(240, 2%, 79%),
+  300: hsl(207, 13%, 34%),
+  400: hsl(240, 10%, 16%)
+);
+
+$clr-gradient-hero: (
+  300: hsl(13, 100%, 72%),
+  400: hsl(353, 100%, 62%)
+);
+
+$clr-gradient: (
+  400: hsl(237, 23%, 32%),
+  500: hsl(237, 17%, 21%)
+);
+
+
+
+//=======FONTS=======//
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+$ff: 'Overpass', sans-serif;
+$ff-title: 'Ubuntu', sans-serif;
+
+$thin: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+
+/* Step -5: 11.25px → 11.80px */
+$secondary-text: clamp(0.70rem, calc(0.53rem + 0.55vw), 0.74rem);
+
+/* Step -4: 13.50px → 14.75px */
+$primary-text: clamp(0.84rem, calc(0.45rem + 1.25vw), 0.92rem);
+
+/* Step -3: 16.20px → 18.43px */
+$sub-title: clamp(1.01rem, calc(0.32rem + 2.23vw), 1.15rem);
+
+/* Step -2: 19.44px → 23.04px */
+$title: clamp(1.22rem, calc(0.09rem + 3.60vw), 1.44rem);
+
+/* Step -1: 23.33px → 28.80px */
+$sub-heading: clamp(1.46rem, calc(-0.25rem + 5.47vw), 1.80rem);
+
+/* Step 0: 28.00px → 36.00px */
+$heading: clamp(1.75rem, calc(-0.75rem + 8.00vw), 2.25rem);
+
+
+
+//====MIXIN=====//
+
+@mixin bg-gradient($clr1,$clr2) {
+  background: linear-gradient(to bottom, $clr1 0%, $clr2 100%);
+}
+
+@mixin get-color($clr, $key) {
+  color: map-get($clr, $key );
+}
+
+@mixin get-bg($clr, $key) {
+  background-color: map-get($clr, $key );
+}
+
+@mixin ff-title($fw: $medium) {
+  font-family: $ff-title;
+  font-weight: $fw;
+}
+@mixin ff($fw: $semi-bold) {
+  font-family: $ff;
+  font-weight: $fw;
+}
+
+@mixin icon($content, $fs, $fn: --fa-font-solid) {
+  &::after {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    content: "#{$content}";
+    font: var($fn);
+    font-size: $fs;
+  }
+}
+
+@mixin container($min1,$min2) {
+  width: min($min1,$min2);
+  margin-inline: auto;
+}
+
+@mixin flex($fd,$gap) {
+  display: flex;
+  flex-direction: $fd;
+  gap: $gap;
+}
+
+@mixin grid($gap) {
+  display: grid;
+  gap: $gap;
+}
+
+@mixin hover($property,$map,$key) {
+  @media (hover: hover) and (pointer: fine) {
+    transition: .6s;
+
+    &:hover {
+      #{$property}: map-get($map, $key );
+    }
+  }
+}
+/*
+@if ($property == background-color) {
+  &:hover {
+    background-color: $clr;
+  }
+
+} @else {
+  &:hover {
+    color: $clr;
+  }
+}
+*/
+
+
+//====STYLES=====//
+body {
+  @include ff();
+  overflow-x: hidden;
+
+  h2,h3 {
+    @include ff-title()
+  }
+
+  h1 {
+    font-size: $heading;
+  }
+
+  h2 {
+    font-size: $sub-heading;
+  }
+
+  h3 {
+    font-size: $title;
+  }
+
+  p {
+    font-weight: $regular;
+  }
+}

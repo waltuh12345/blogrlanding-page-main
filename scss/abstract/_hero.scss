@@ -1,0 +1,259 @@
+@use 'config' as *;
+@use 'shared' as *;
+@use 'variables' as *;
+body {
+  overflow-x: hidden;
+}
+
+
+#hero {
+  @extend %hero-bg;
+  @include get-color($clr-neutral, 100);
+  
+  #menu-toggle {
+    @include icon($fa-var-bars,24px);
+    z-index: 1000;
+    
+    &.active {
+      @include icon($fa-var-close,24px);
+      animation: pulse;
+      animation-duration: 1s;
+    }
+  }
+
+  nav {
+    @include flex(row,0);
+    margin-bottom: 7rem;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 3rem;
+  }
+
+  .links-wrapper {
+    display: none;
+  }
+
+  header {
+    text-align: center;
+    line-height: 1.2;
+    @include container(94%,400px);
+
+    > :nth-child(2) {
+      font-weight: 300;
+      margin: 0;
+      margin: 1rem 0 2rem 0;
+      @include get-color($clr-neutral,200);
+    }
+
+    .btn-wrapper {
+      @include grid(1rem);
+      grid-template-columns: 1fr 1fr;
+      > button {
+        @extend %btn;
+      }
+    }
+  }
+}
+
+
+#hero {
+  .links-wrapper {
+    font-size: 16px;
+    font-weight: $medium;
+    font-family: $ff-title;
+
+    .list1 {
+      @include flex(row,.8rem 1rem);
+      button {
+        @include icon($fa-var-chevron-down,12px);
+        &::after {
+          margin-left: .5rem;
+          color: map-get($clr-neutral, 100 );
+        } 
+
+        &::after,
+        &:hover {
+          color: darken(map-get($clr-neutral, 100 ), 10%);
+        }
+      }
+
+      ul {
+        display: none;
+        gap: 1rem;
+      }
+    }
+
+    .primary-btn {
+      color: map-get($clr-neutral, 100 );
+      background-color: map-get($clr-primary, 400);
+      width: 120px;
+      @extend %btn;
+      @include hover(background-color,$clr-neutral,200);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: lighten(map-get($clr-neutral,300), 6%);
+    @include hover(color,$clr-primary,500);
+    &:active {
+      color: map-get($clr-primary, 300 );
+    }
+  }
+}
+
+@media (max-width: 48rem) {
+  #hero {
+    .links-wrapper.active {
+      overflow-y: scroll;
+      padding-bottom: 2rem;
+      animation: fadeIn;
+      animation-duration: 1s;
+      text-align: center;
+      display: block;
+      position: fixed;
+      inset: 0;
+      @include get-color ($clr-neutral,300);
+      backdrop-filter: blur(4px);
+      filter: blur(0);
+      
+      .list1 {
+        flex-direction: column;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid map-get($clr-neutral, 300 );
+        margin-bottom: 2rem;
+
+        button {
+          @include hover(color,$clr-neutral,200);
+
+          &::after {
+            @include get-color($clr-primary,300);
+          }
+        }
+      }
+      
+      section.active {
+        button {
+          animation: pulse;
+          animation-duration: 1s;
+          @include icon($fa-var-chevron-up,12px);
+        }
+  
+        ul {
+          animation: fadeInDown;
+          animation-duration: 1s;
+          margin-top: 1rem;
+          display: block;
+          padding: 1.5rem;
+          display: grid;
+          @include get-bg($clr-neutral,210);
+          border-radius: 8px;
+        }
+      }
+  
+      .list-container {
+        @include container(90%,400px);
+        animation: pulse;
+        animation-duration: 1s;
+        border-radius: 8px;
+        margin-top: 6rem;
+        padding: 1.5rem;
+        @include get-bg($clr-neutral,100);
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+      }
+  
+  
+      .list2 {
+        @include grid(1rem 0);
+
+        > :nth-child(1) a {
+          @include hover(color,$clr-neutral,200)
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: 48rem) {
+  #hero {
+    height: 32rem;
+    picture img {
+      scale: 1.8;
+      margin: -10rem 0 0 0;
+    }
+    #menu-toggle {
+      display: none;
+    }
+
+    nav {
+      display: flex;
+
+      > a img {
+        width: 86px;
+      }
+    }
+
+    .links-wrapper {
+      display: block;
+      flex: 1;
+      .container {
+
+        width: initial;
+      }
+
+      button::after {
+        color: map-get($clr-neutral, 100 );
+      }
+    }
+
+    .list-container {
+      @include flex(row,0);
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 3rem;
+
+      .btn-wrapper {
+        a {
+          color: map-get($clr-neutral, 100 );
+
+          &:active {
+            color: map-get($clr-primary, 400 );
+          }
+        }
+
+        @include flex(row,1rem);
+        align-items: center;
+      }
+    }
+
+    .list1 {
+      flex-direction: row;
+
+      
+      section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      
+      section:hover {
+        ul {
+          border-radius: 6px;
+          text-align: center;
+          position: absolute;
+          display: block;
+          padding: 1rem;
+          width: 140px;
+          top: 1.5rem;
+          background-color: map-get($clr-neutral, 100 );
+          animation: fadeIn 1s ease;
+        }
+
+        button {
+          @include icon($fa-var-chevron-up,12px);
+        }
+      }
+    }
+  }
+}

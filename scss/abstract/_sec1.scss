@@ -1,0 +1,97 @@
+@use './config' as *;
+main {
+  > * {
+    margin-bottom: 4rem;
+  }
+  > :last-child {
+    margin: 0;
+  }
+}
+
+#sec1 {
+  overflow-x: hidden;
+  h2,h3 {
+    color: map-get($clr-primary, 500 );
+  }
+
+  p {
+    color: map-get($clr-neutral, 300 );
+  }
+  .box1 {
+    animation: fadeInRight;
+    animation-duration: 1s;
+  }
+  .box2 {
+    animation: fadeInLeft;
+    animation-duration: 1s;
+  }
+}
+
+#sec1 {
+  text-align: center;
+
+  img {
+    margin-inline: auto;
+    max-width: 400px;
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+    line-height: 1.1;
+    @include container(86%,400px);
+  }
+
+  h3 {
+    margin-bottom: 1.5rem;
+    @include container(86%,400px);
+    line-height: 1.1;
+  }
+
+  article {
+    @include flex(column,0);
+
+    ul {
+      padding: 2rem 2rem;
+      @include grid(3rem 0);
+    }
+  }
+}
+
+@media (min-width: 48rem) {
+  #sec1 {
+    animation: fadeIn;
+    animation-duration: 1s;
+  }
+
+  #sec1 article{
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: initial;
+    }
+
+    .box2 {
+      flex: 0 1 26rem;
+    }
+
+    ul {
+      text-align: initial;
+      flex: 0 2 34rem;
+    }
+
+    h3 {
+      margin-inline: initial;
+    }
+
+    .box2 {
+      animation: fadeInRight;
+      animation-duration: 1s;
+    }
+    .box1 {
+      animation: fadeInLeft;
+      animation-duration: 1s;
+    }
+  }
+}

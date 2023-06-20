@@ -1,0 +1,58 @@
+@use 'config' as * ;
+#sec3 {
+  .sec3-container {  
+    max-width: 500px;
+    margin-inline: auto;
+    margin-top: 6rem;
+    picture {
+      scale: 1.3;
+      margin: 2rem 0 2rem 0;
+    }
+
+    img {
+      animation: fadeInLeft ease-in-out 1s;
+      margin-inline: auto;
+    }
+
+    text-align: center;
+    color: map-get($clr-neutral, 300 );
+  }
+
+  ul {
+    animation: fadeInRight ease-in-out 1s;
+    padding: 1.4rem;
+    @include grid(1.5rem);
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+    font-size: $sub-heading;
+  }
+}
+
+@media (min-width: 48rem) {
+  #sec3 {
+    animation: fadeIn;
+    animation-duration: 1s;
+    margin-top: 4rem;
+    .sec3-container {
+      display: flex;
+      align-items: center;
+      max-width: 950px;
+      
+      picture {
+        margin: 0 0 0 -16rem;
+        scale: initial;
+        flex:  0 1 56rem;
+        img {
+          margin: initial;
+        }
+      }
+      
+      ul {
+        text-align: initial;
+        flex: 0 1 34rem;
+      }
+    }
+  }
+}
